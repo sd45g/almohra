@@ -16,7 +16,7 @@ const reservationSchema = new Schema({
     {
         type: Schema.Types.ObjectId,
         ref: 'Decoration',
-        required: true
+       // required: true
     },
     classification:
     {
@@ -28,11 +28,6 @@ const reservationSchema = new Schema({
         type: Number,
         required: true
     },
-    status: {
-        type: String,
-        enum: ['confirmed', 'temporary'],
-        default: 'temporary'
-    },
     bookingDate: {
         type: Date,
         required: true
@@ -40,15 +35,37 @@ const reservationSchema = new Schema({
     user_id: {
         type: Schema.Types.ObjectId,// Reference to the user who made the booking
         ref: 'User',
-        required: true
+      //  required: true
     },
-    price: {
+    amountPaid: {
         type: Number,
         required: true,
     },
+    notes: {
+        type: String,
+    },
+    paymentMethod: {
+        type: String,
+        enum: ['نقدًا', 'localbankcards'],
+        required: true,
+        default:'نقدًا',
+      },
+      notified: {
+        type: Boolean,
+        default: false, // الافتراضي: لم يتم الإشعار
+      },
 
 }, {
     timestamps: true,
 });
 
 module.exports = mongoose.model('Reservation', reservationSchema);
+
+
+
+  
+  
+ 
+ 
+ 
+   

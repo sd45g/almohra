@@ -1,36 +1,29 @@
-//الديكورات التي يمكن إضافتها من قبل المدير.
+// الديكورات التي يمكن إضافتها من قبل المدير.
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
 const decorationSchema = new Schema({
-    name: {
+    dec_name: { // تعديل الاسم ليصبح dec_name
         type: String,
         required: true,
     },
-    classification:
-    {
+    description: { // إضافة وصف الديكور
         type: String,
-        enum: ['birth', 'graduation', 'wedding'],
-        required: true
+        required: true,
     },
     status: {
         type: String,
-        enum: ['active', 'inactive'],
-        default: 'active',
+        enum: ['مفعل', 'معطل'],
+        default: 'مفعل',
     },
-    picture: {
-        type: String,
+    pictures: [{ // صور الديكور
+        type: String, // URL or image path
         required: true,
-    }, // URL or image path
-    admin_id: {
+    }],
+    admin_id: { // مرجع المدير الذي أضاف الديكور
         type: Schema.Types.ObjectId,
         ref: 'User',
-        required: true
-    }, // Admin reference
-   
-},{
-    timestamps: true,
-  });
+    }, 
+});
 
 module.exports = mongoose.model('Decoration', decorationSchema);

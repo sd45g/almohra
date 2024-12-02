@@ -10,10 +10,17 @@ const advertisementSchema = new Schema({
         type: String,// URL or image path
         required: true,
     }, 
+    description: {
+        type: String,
+        maxlength: 500 // optional limit on description length
+    },
+    expiryDate: {
+        type: Date
+    },
     admin_id: {
         type: Schema.Types.ObjectId,// Admin reference
         ref: 'User',
-        required: true
+       // required: true
     }, 
     
 }, {
