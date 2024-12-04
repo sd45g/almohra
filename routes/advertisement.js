@@ -22,7 +22,6 @@ router.get('/public', advertisementController.getPublicAdvertisements);
 
 // Apply authentication middleware
 router.use(authMiddleware);
-// Routes
 router.get('/', authorizeRoles('admin'), advertisementController.getAllAdvertisements);
 router.post('/create', authorizeRoles('admin'), upload.single('adImage'), advertisementController.createAdvertisement);
 router.get('/:id', authorizeRoles('admin'), advertisementController.getAdvertisementById);

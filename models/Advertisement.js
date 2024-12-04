@@ -20,7 +20,6 @@ const advertisementSchema = new Schema({
     admin_id: {
         type: Schema.Types.ObjectId,// Admin reference
         ref: 'User',
-       // required: true
     }, 
     
 }, {
