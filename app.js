@@ -7,7 +7,7 @@ const cors = require("cors"); // استدعاء مكتبة cors
 const path = require("path");
 var logger = require("morgan");
 const userRouter = require("./routes/user");
-const advertismentRouter = require("./routes/advertisment");
+const advertisementRouter = require("./routes/advertisement");
 const reservationRouter = require("./routes/Reservation");
 const decorationRoutes = require("./routes/decoration");
 const receiptRoutes = require("./routes/receipt");
@@ -39,7 +39,7 @@ app.use(express.json()); //لتحليل جسم الطلبات (request body) ب�
 app.use(express.urlencoded({ extended: true })); //لتحليل الطلبات التي تحتوي على بيانات مُرسلة بتنسيق URL-encoded.
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/users", userRouter);
-app.use("/api/advertisements", advertismentRouter);
+app.use("/api/advertisements", advertisementRouter);
 app.use("/api/reservations", reservationRouter);
 app.use("/api/decorations", decorationRoutes);
 app.use("/api/receipts", receiptRoutes);
