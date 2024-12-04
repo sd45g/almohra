@@ -1,5 +1,5 @@
 // controllers/advertisementController.js
-const Advertisement = require('../models/advertisement');
+const Advertisement = require("../models/advertisement");
 //w
 
 // Create a new advertisement
@@ -35,11 +35,12 @@ exports.createAdvertisement = async (req, res) => {
   }
 };
 
-
 // Get all advertisements
 exports.getAllAdvertisements = async (req, res) => {
   try {
-    const advertisements = await Advertisement.find().select("adImage description expiryDate");
+    const advertisements = await Advertisement.find().select(
+      "adImage description expiryDate"
+    );
     res.status(200).json(advertisements);
   } catch (error) {
     console.error("Failed to fetch advertisements:", error);
