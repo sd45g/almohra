@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL, "https://almohra-frontend.vercel.app"],
+    origin: [process.env.FRONTEND_URL, "http://almohra-frontend-sylf.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
