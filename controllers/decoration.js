@@ -1,4 +1,4 @@
-const Decoration = require("../models/decoration");
+const Decoration = require("../models/Decoration");
 
 // إنشاء ديكور جديد
 exports.createDecoration = async (req, res) => {
